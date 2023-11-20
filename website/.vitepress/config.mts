@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
+import { mdBook, telegram } from '../../website/icons'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -163,6 +164,18 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/CakesTwix/ViteAboutAndroidBuilding' },
+      {
+        icon: {
+          svg: telegram,
+        },
+        link: 'https://t.me/BookAboutBuilding',
+      },
+      {
+        icon: {
+          svg: mdBook
+        },
+        link: 'https://roker2.github.io/BookAboutBuilding/',
+      }
     ]
   }
 })
