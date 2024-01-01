@@ -215,20 +215,20 @@ export default defineConfig({
         link: 'https://roker2.github.io/BookAboutBuilding/',
       }
     ],
-
-    locales: {
-      root: {
-        label: 'Русский',
-        lang: 'ru',
-        link: '/',
-        ...ruConfig,
-      },
-      ua: {
-        label: 'Українська',
-        lang: 'ua',
-        link: '/ua/',
-        ...uaConfig,
-      }
+  },
+  locales: {
+    root: {
+      label: 'Русский',
+      lang: 'ru',
+      link: '/',
+      ...ruConfig,
     },
+    ua: {
+      label: 'Українська',
+      lang: 'ua',
+      link: '/ua/',
+      ...uaConfig,
+    }
+  },
 })
 
