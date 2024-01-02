@@ -2,12 +2,44 @@ import { defineConfig } from 'vitepress'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 import { mdBook, telegram } from '../../website/icons'
 
+import { ruConfig } from './locales/ru'
+import { uaConfig } from './locales/ua'
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  lastUpdated: true,
+  outDir: './dist',
+  srcExclude: [],
+  scrollOffset: 'header',
+  cleanUrls: true,
+
   title: "About Android Building",
   description: "Android Build from Source: A Comprehensive Guide",
-  lang: 'ru',
-  head: [['link', { rel: 'icon', href: '/ViteAboutAndroidBuilding/Android.png' }]],
+
+  head: [
+    [
+      'link', 
+      { 
+        rel: 'icon',
+        href: '/Android.png' 
+      }
+    ],
+    [
+      'meta',
+      {
+        name: 'viewport',
+        content:
+          'width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,viewport-fit=cover',
+      },
+    ],
+    [
+      'meta',
+      {
+        name: 'apple-mobile-web-app-status-bar-style',
+        content: 'lack-translucent',
+      },
+    ],
+  ],
 
   markdown: {
     config(md) {
@@ -15,20 +47,7 @@ export default defineConfig({
     }
   },
 
-  base: '/ViteAboutAndroidBuilding/',
-
-  locales: {
-    root: {
-      label: 'Русский',
-      lang: 'ru'
-    },
-    /*
-    ua: {
-      label: 'Українська',
-      lang: 'ua'
-    },
-    */
-  },
+  base: '/',
 
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -59,31 +78,27 @@ export default defineConfig({
     search: {
       provider: 'local',
       options: {
-        locales: {
-          root: {
-            translations: {
-              button: {
-                buttonText: 'Поиск',
-                buttonAriaLabel: 'Поиск'
-              },
-              modal: {
-                displayDetails: 'Отобразить подробный список',
-                noResultsText: 'Ничего не нашли',
-                resetButtonTitle: 'Сбросить поиск',
-                footer: {
-                  selectText: 'для выбора',
-                  selectKeyAriaLabel: 'enter',
-                  navigateText: 'для навигации',
-                  navigateUpKeyAriaLabel: 'стрелка вверх',
-                  navigateDownKeyAriaLabel: 'стрелка вниз',
-                  closeText: 'закрыть',
-                  closeKeyAriaLabel: 'escape',
-                }
-              }
-            }
-          }
-        }
-      }
+        translations: {
+          button: {
+            buttonText: 'Поиск',
+            buttonAriaLabel: 'Поиск'
+          },
+          modal: {
+            displayDetails: 'Отобразить подробный список',
+            noResultsText: 'Ничего не нашли',
+            resetButtonTitle: 'Сбросить поиск',
+            footer: {
+              selectText: 'для выбора',
+              selectKeyAriaLabel: 'enter',
+              navigateText: 'для навигации',
+              navigateUpKeyAriaLabel: 'стрелка вверх',
+              navigateDownKeyAriaLabel: 'стрелка вниз',
+              closeText: 'закрыть',
+              closeKeyAriaLabel: 'escape',
+            },
+          },
+        },
+      },
     },
 
     outline: {
@@ -176,7 +191,21 @@ export default defineConfig({
         },
         link: 'https://roker2.github.io/BookAboutBuilding/',
       }
-    ]
-  }
+    ],
+  },
+  locales: {
+    root: {
+      label: 'Русский',
+      lang: 'ru',
+      link: '/',
+      ...ruConfig,
+    },
+    ua: {
+      label: 'Українська',
+      lang: 'ua',
+      link: '/ua/',
+      ...uaConfig,
+    }
+  },
 })
 
